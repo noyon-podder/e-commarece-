@@ -207,6 +207,10 @@ h4 {
   gap: 1em;
   transition: var(--trans-color);
 }
+.mini-text {
+  font-size: var(--font-smaller);
+  color: var(--light-text-color);
+}
 /* 
 =============================
 structure styling 
@@ -406,13 +410,79 @@ nav .fly-item {
     c. Header Main, Department Category
 ==============================
 */
-
+.header-main {
+  background-color: var(--secondary-dark-color);
+  padding: 1.5em 0;
+  margin-bottom: 2em;
+}
+.dpt-cat {
+  position: relative;
+  z-index: 10;
+}
+.dpt-cat .dpt-head {
+  position: relative;
+  width: 300px;
+  padding: 0.75em 1.5em;
+  background-color: var(--primary-color);
+  border-radius: 7px 7px 0 0;
+  color: var(--white-color);
+  margin-bottom: -2.15em;
+}
+.dpt-cat .dpt-head .mini-text {
+  color: var(--light-bg-color);
+}
+.dpt-cat .dpt-trigger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.3em;
+  width: 60px;
+  height: 60px;
+}
 /*
 ============================
 01. Header
     d. Search Form
 ==============================
 */
+.header-main .right {
+  flex: 1;
+}
+form {
+  position: relative;
+}
+form.search input {
+  line-height: 3.25em;
+  padding: 0 7em 0 4.5em;
+  border: none;
+  outline: 0;
+  width: var(--percent100);
+  font-size: 0.9em;
+  font-weight: var(--fw3);
+}
+form.search :where(span, button) {
+  position: absolute;
+  top: 0;
+  padding: 0.55em 1.5em;
+  font-size: 1em;
+  color: var(--light-text-color);
+  height: var(--percent100);
+}
+form.search button {
+  right: 0;
+  bottom: 0;
+  outline: none;
+  font-size: 0.875em;
+  font-weight: var(--fw6);
+  background-color: var(--primary-color);
+  border: 0;
+  color: var(--white-color);
+  cursor: pointer;
+  transition: var(--trans-bg);
+}
+form.search button:hover {
+  background-color: var(--dark-color);
+}
 /*
 ============================
 01. Header
@@ -561,5 +631,9 @@ nav .fly-item {
     font-weight: var(--fw8);
     text-align: center;
     color: var(--secondary-dark-color);
+  }
+  .header-main .right {
+    max-width: 600px;
+    margin-left: auto;
   }
 }
