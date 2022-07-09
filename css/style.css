@@ -154,6 +154,59 @@ h4 {
   font-size: 1.75em;
   padding: 0 0.75em 0 0;
 }
+.mobile-hide {
+  display: none;
+}
+.object-cover img {
+  position: absolute;
+  object-fit: cover;
+  width: var(--percent100);
+  height: var(--percent100);
+  display: block;
+}
+.products .media {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.primary-button,
+.secondary-button,
+.light-button {
+  font-size: var(--font-small);
+  padding: 0.9em 2em;
+  height: auto;
+  width: fit-content;
+  border-radius: 2em;
+  transition: var(--trans-bg-color);
+}
+.primary-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+.primary-button:hover {
+  background-color: var(--dark-color);
+}
+.secondary-button {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+.secondary-button:hover {
+  background-color: var(--light-bg-color);
+  color: var(--secondary-dark-color);
+}
+.light-button {
+  background-color: var(--light-bg-color);
+}
+.light-button:hover {
+  background-color: var(--secondary-dark-color);
+  color: var(--white-color);
+}
+.view-all {
+  font-size: var(--font-small);
+  display: flex;
+  gap: 1em;
+  transition: var(--trans-color);
+}
 /* 
 =============================
 structure styling 
@@ -263,6 +316,11 @@ header li > a {
     b. Header Nav 
 ==============================
 */
+.header-nav {
+  padding: 0.5em 0;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid var(--border-color);
+}
 .trigger {
   font-size: 1.5em;
   display: flex;
@@ -301,24 +359,46 @@ header li > a {
 }
 .header-nav nav > ul {
   line-height: 100px;
-  gap: 2em; 
+  gap: 2em;
 }
-.fly-item{
-    position: absolute;
-    height: 16px;
-    font-size: var(--font-smaller);
-    padding: 3px;
-    text-align: center;
-    line-height: 10px;
-    color: var(--white-color);
+.fly-item {
+  position: absolute;
+  height: 16px;
+  font-size: var(--font-smaller);
+  padding: 3px;
+  text-align: center;
+  line-height: 10px;
+  color: var(--white-color);
 }
-nav .fly-item{
-    top: 50%;
-    margin-top: -24px;
-    background-color: var(--primary-color);
-    width: 30px;
-    border-radius: 3px;
-    right: -32px
+nav .fly-item {
+  top: 50%;
+  margin-top: -24px;
+  background-color: var(--primary-color);
+  width: 30px;
+  border-radius: 3px;
+  right: -32px;
+}
+.header-nav .right {
+  position: relative;
+  margin-left: auto;
+}
+.header-nav .right .icon-large {
+  position: relative;
+}
+.header-nav .right .fly-item {
+  top: 0;
+  right: 16px;
+  width: 16px;
+  background-color: var(--secondary-dark-color);
+  border-radius: var(--percent50);
+}
+/* mega menu  */
+.mega .flexcol {
+  flex: 1;
+  max-width: 180px;
+  padding-right: 2.5em;
+  margin-bottom: 1.5em;
+  z-index: 1;
 }
 /*
 ============================
@@ -345,6 +425,47 @@ nav .fly-item{
 02. Slider
 ==============================
 */
+
+/*
+============================
+03. Brands
+==============================
+*/
+
+/*
+============================
+04. Product
+==============================
+*/
+
+/*
+============================
+04. Product
+    a. Global Product
+==============================
+*/
+
+/*
+============================
+04. Product
+    b. Big Product
+==============================
+*/
+
+/*
+============================
+04. Product
+    c. Mini Product
+==============================
+*/
+
+/*
+============================
+04. Product
+   d. Main Product
+==============================
+*/
+
 /*
 ============================
 15. Responsive
@@ -357,5 +478,88 @@ nav .fly-item{
   }
   .desktop-hide {
     display: none;
+  }
+  .mobile-hide {
+    display: block;
+  }
+  .logo a {
+    margin-right: 2em;
+  }
+  .header-nav {
+    padding: 0;
+    margin: 0;
+    border-bottom: 0;
+  }
+  .header-nav .right li > a {
+    margin-left: 1em;
+  }
+  /* mega menu  */
+  nav .mega {
+    position: absolute;
+    width: var(--percent100);
+    height: auto;
+    top: auto;
+    left: 0;
+    right: 0;
+    padding: 2.5em;
+    line-height: 2em;
+    background-color: var(--light-bg-color);
+    box-shadow: 0 30px 20px -30px rgb(0 0 0 /20%);
+    z-index: 100;
+    display: none;
+  }
+  nav li.has-child:hover .mega {
+    display: block;
+  }
+  nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav .mega h4 {
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+  nav .mega ul {
+    font-size: var(--font-small);
+  }
+  nav .mega .women-brands {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 180px;
+  }
+  nav .mega .women-brands li {
+    min-width: 80px;
+  }
+  nav .mega .view-all {
+    margin-top: 1em;
+  }
+  nav .mega .products {
+    flex: 2;
+    align-items: center;
+    padding: 0;
+    position: relative;
+  }
+  nav .mega .products .row {
+    width: var(--percent100);
+  }
+  nav .mega .products .media {
+    height: 400px;
+  }
+  nav .mega .products .text-content {
+    line-height: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.5em;
+    position: absolute;
+    bottom: 4em;
+    width: var(--percent100);
+  }
+  nav .mega .products .text-content h4 {
+    font-size: 2em;
+    font-weight: var(--fw8);
+    text-align: center;
+    color: var(--secondary-dark-color);
   }
 }
