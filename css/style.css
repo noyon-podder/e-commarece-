@@ -148,7 +148,7 @@ h4 {
 }
 .icon-small {
   font-size: 1.25em;
-  margin: auto;
+  margin-left: auto;
 }
 .icon-large {
   font-size: 1.75em;
@@ -439,6 +439,11 @@ nav .fly-item {
   width: 60px;
   height: 60px;
 }
+.dpt-menu > ul > li > a {
+  height: 46px;
+  font-size: var(--font-small);
+  align-items: center;
+}
 /*
 ============================
 01. Header
@@ -635,5 +640,96 @@ form.search button:hover {
   .header-main .right {
     max-width: 600px;
     margin-left: auto;
+  }
+  /* department menu  */
+
+  .dpt-menu {
+    position: absolute;
+    top: var(--percent100);
+    border: 1px solid var(--border-color);
+    width: 300px;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  .dpt-menu > ul > li > a {
+    font-weight: var(--fw5);
+    padding: 0 1.5em;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* sub menu design start here  */
+
+  .dpt-menu .has-child > ul,
+  .dpt-menu .mega {
+    position: absolute;
+    top: 0;
+    left: var(--percent100);
+    width: var(--percent100);
+    height: auto;
+    min-height: var(--percent100);
+    padding: 1.5em;
+    line-height: 2.5em;
+    font-size: var(--font-small);
+    border: 1px solid var(--border-color);
+    border-top: 0;
+    display: none;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* showing the first sub menu */
+  .dpt-menu .beauty ul {
+    background-image: url("../images/banner/b18.jpg");
+  }
+  .dpt-menu .electric ul {
+    background-image: url("../images/banner/electric.jpg");
+  }
+  .dpt-menu .fashion ul {
+    background-image: url("../images/banner/fashion.jpg");
+  }
+  .dpt-menu .homekit .mega {
+    background-image: url("../images/banner/b4.jpg");
+  }
+  .dpt-menu .has-child > :where(ul, .mega)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.7) 10%
+    );
+  }
+  .dpt-menu .mega {
+    width: auto;
+    min-width: 600px;
+    display: flex;
+    visibility: hidden;
+  }
+  .dpt-menu .has-child:hover .mega {
+    visibility: visible;
+  }
+  .dpt-menu .has-child:hover > ul {
+    display: block;
+  }
+  .dpt-menu .has-child ul li a {
+    position: relative;
+    transition: 0.3s;
+  }
+  .dpt-menu .has-child ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+  }
+  .dpt-menu .has-child ul li a:hover::after {
+    width: 70%;
   }
 }
