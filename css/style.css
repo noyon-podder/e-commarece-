@@ -272,7 +272,7 @@ structure styling
 01. Header
 ==============================
 */
-header li > a {
+:where(.off-canvas, header) li > a {
   display: flex;
   position: relative;
   line-height: inherit;
@@ -305,10 +305,10 @@ header li > a {
   z-index: 1;
   display: none;
 }
-.header-top ul ul li a {
+:where(.header-top, .theTop-nav) .right ul ul li a {
   padding: 0.25em 1em;
 }
-.header-top ul ul li.current a {
+:where(.header-top, .theTop-nav) .right ul ul li.current a {
   background-color: var(--border-color);
 }
 .header-top li:hover ul {
@@ -494,7 +494,127 @@ form.search button:hover {
     e. Responsive Menu -off canvas
 ==============================
 */
+.site-off {
+  position: fixed;
+  width: 300px;
+  height: var(--percent100);
+  background-color: var(--white-color);
+  overflow-y: auto;
+  z-index: 1000;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 0.4s 0, visibility 0.4s 0.4s;
+  will-change: transform, visibility;
+}
+.showMenu .site-off {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.4s 0s, visibility 0s 0s;
+}
+.off-canvas {
+  width: var(--percent100);
+  height: var(--percent100);
+  padding: 1.5em;
+  touch-action: auto;
+}
+.off-canvas .canvas-head {
+  color: var(--white-color);
+  padding: 1.5em;
+  background-color: var(--secondary-dark-color);
+  justify-content: space-between;
+  margin: -1.5em -1.5em 1.5em;
+  border-bottom-right-radius: 160px 25px;
+}
+.off-canvas .canvas-head .logo {
+  z-index: 10;
+  position: relative;
+}
+.off-canvas .canvas-head .logo .circle {
+  opacity: 0.75;
+}
+.t-close {
+  font-size: 1.25em;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--percent50);
+  background-color: var(--secondary-dark-color);
+  color: var(--white-color);
+  transform: var(--trans-bg-color);
+}
+.t-close:hover {
+  background-color: var(--white-color);
+  color: var(--secondary-dark-color);
+  opacity: 0.75;
+}
+.off-canvas .dpt-head {
+  font-size: var(--font-small);
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  background-color: var(--light-bg-color);
+  border-radius: 7px 7px 0 0;
+}
+.off-canvas .has-child > :where(ul, .mega) {
+  font-size: var(--font-small);
+  font-weight: var(--fw3);
+  padding-left: 3em;
+  line-height: 28px;
 
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.off-canvas .expand > :where(ul, .mega) {
+  max-height: 2000px;
+}
+.off-canvas .theTop-nav ul,
+.off-canvas nav > ul {
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1.25em;
+  font-size: var(--font-small);
+  border-top: 1px solid var(--border-color);
+  line-height: 36px;
+  margin: 1.25em 0;
+}
+.off-canvas nav .mega {
+  padding: 0;
+}
+.off-canvas nav .mega .products {
+  display: none;
+}
+.off-canvas .has-child .icon-small {
+  padding: 0.5em;
+  line-height: initial;
+}
+.off-canvas .has-child .icon-small i {
+  transform: rotate(90deg);
+}
+.off-canvas .has-child {
+  width: var(--percent100);
+}
+.off-canvas
+  .theTop-nav
+  .right
+  > ul
+  > :where(:nth-child(4), li:nth-child(5))
+  > a {
+  display: none;
+}
+.off-canvas .theTop-nav .right ul ul {
+  display: flex;
+  flex-direction: row;
+}
+.off-canvas .theTop-nav .right ul ul li a {
+  padding: 0, 5em;
+  border: 1px solid var(--border-color);
+  line-height: 16px;
+  margin: 0 0.5em 0.5em 0;
+}
+aside {
+  overflow-x: hidden;
+}
 /*
 ============================
 02. Slider
